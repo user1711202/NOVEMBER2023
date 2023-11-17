@@ -52,8 +52,17 @@ Also a set of complementary experiments was conducted to assess the robustness o
 - **Note**: All domain-specific datasets used are low-data, following the article's criteria.
 
 
-## Installation Instructions
-To install and set up the project...
+## Requirements
+torch
+torchvision
+tqdm
+einops
+wandb
+pytorch-lightning
+lightning-bolts
+torchmetrics
+scipy
+timm
 
 ## Usage
 for training python3 main_pretrain.py \
