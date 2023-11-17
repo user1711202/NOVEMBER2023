@@ -22,4 +22,18 @@ To install and set up the project...
 To use this project for image classification...
 
 ## Results
-Our experiments demonstrate that SSL methods...
+## Results
+
+### Top-5 Accuracy for the Single-Dataset Setup
+
+ImageNet-100/Places-100 has been utilized both for pretraining and downstream finetuning in the object-centric/scene-centric cases, respectively. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
+| Pretraining        | IN-100      | Places-100  |
+| ------------------ | ----------- | ----------- |
+| SimCLR (ResNet)    | **73.5%**   | *69.8%*     |
+| DINO (ViT)         | 72.1%       | 68.5%       |
+| MAE (ViT)          | 72.7%       | 69.1%       |
+| DeepClusterV2 (ResNet) | 70.3%   | 66.8%       |
+| None/Random (ResNet)   | 70.6%   | 70.3%       |
+| None/Random (ViT)      | 71.2%   | **70.9%**   |
+
