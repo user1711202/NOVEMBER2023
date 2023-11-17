@@ -2,9 +2,12 @@
 
 This document provides an overview of the datasets used in our research, along with specific modifications and configurations.
 
+
+##Μodifications and configurations.
+
 Places-100:
 Derived from Places-365 by randomly selecting 500 images per class (total of 50,000 images), contrary to the 400 images per class in Places-365 as per \cite{he2021quantifying}.
-The dataset is divided into training, validation, and test sets with a 70-15-15 split ratio\footnote{Henceforth, this modified variant is referred to whenever Places-100 is mentioned}.
+The dataset is divided into training, validation, and test sets with a 70-15-15 split ratio, this modified variant is referred to whenever Places-100 is mentioned}.
 ADE20K:
 The training set is randomly split into a training and a validation set, following an 80:20 ratio.
 STL-10:
