@@ -119,4 +119,21 @@ SSL variants and the "Supervised" baselines have been pretrained on ImageNet-100
 | Supervised-Large (ViT)| **86.2%**        | **68.2%**    | 64.2%            | **66.5%**       |
 
 
+## Top-1 Accuracy for Domain-Specific Setups
+
+MLRSNet, MedPix, and SIXRay-100 have been utilized for SSL pretraining in their respective domains. Both ImageNet-100 and ImageNet-1k have been utilized as pretraining datasets for the respective supervised baselines. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
+| Pretraining                  | AID            | ChestX-Det     | SIXRay-10      |
+| ---------------------------- | -------------- | -------------- | -------------- |
+| SimCLR (ResNet)              | 58.1%          | 68.2%          | 73.3%          |
+| DINO (ViT)                   | *65.7%*        | **76.4%**      | **74.1%**      |
+| MAE (ViT)                    | 63.5%          | 72.1%          | 69.7%          |
+| DeepClusterV2 (ResNet)       | 57.4%          | 70.6%          | 66.3%          |
+| Supervised (IN-100, ResNet)  | 60.2%          | 70.3%          | 68.4%          |
+| Supervised-Large (IN-1k, ResNet) | 66.2%     | 72.5%          | 70.2%          |
+| Supervised (IN-100, ViT)     | 65.1%          | 73.6%          | 72.5%          |
+| Supervised-Large (IN-1k, ViT) | **68.7%**     | 74.5%          | 73.9%          |
+
+
+
 
