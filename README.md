@@ -22,7 +22,6 @@ To install and set up the project...
 To use this project for image classification...
 
 ## Results
-## Results
 
 ### Top-5 Accuracy for the Single-Dataset Setup
 
