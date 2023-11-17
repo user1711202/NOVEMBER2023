@@ -15,6 +15,43 @@ Single-Dataset Setup: Both SSL pretraining and supervised finetuning on the same
 Comparative Analysis
 We compare SSL methods against deep neural networks (DNNs) pretrained on both the full and low-data versions of ImageNet and Places datasets. The effectiveness of SSL is also measured against DNNs trained from scratch.
 
+### Robustness Evaluation
+Also a set of complementary experiments was conducted to assess the robustness of the four SSL methods:
+
+#### Noisy-ImageNet-100
+- **Objective**: Evaluate resilience against various forms of noise and corruptions.
+- **Datasets**: 
+  - ImageNet-A, ImageNet-P, and ImageNet-C, adapted to ImageNet-100's class scope.
+- **Approach**: 
+  - The ImageNet-100-pretrained variants of the SSL methods, after regular downstream finetuning, were tested on these adapted noisy datasets.
+
+#### Imbalanced-ImageNet-100
+- **Objective**: Evaluate resilience against uneven class distribution.
+- **Dataset**: 
+  - An imbalanced variant of ImageNet, named ImageNet-Long-Tail, adapted for ImageNet-100.
+- **Approach**: 
+  - The ImageNet-100-pretrained SSL methods underwent supervised downstream finetuning on this imbalanced dataset.
+- **Comparisons**: 
+  - The SSL methods were compared against supervised training/pretraining on ImageNet-1k and ImageNet-100, as well as direct downstream training from scratch.
+
+### Cross-Domain Robustness
+- **Benchmark**: Visual Task Adaptation Benchmark (VTAB).
+- **Approach**: 
+  - The ImageNet-100-pretrained SSL variants were finetuned and tested across the 19 VTAB downstream datasets.
+- **Task Groups**: 
+  - The benchmark includes "natural," "specialized," and "structured" task groups.
+
+### Domain-Specific Experiments
+- **Objective**: Evaluate the performance of SSL methods in specialized image domains.
+- **Domains**:
+  - **Remote Sensing**: Using MLRSNet for pretraining and AID for downstream.
+  - **Medical Imaging**: Using MedPix for pretraining and ChestX-Det for downstream.
+  - **Security Imaging**: Using subsets of the SIXRay dataset for both pretraining and downstream tasks.
+- **Approach**: 
+  - In-domain SSL pretraining was compared against supervised pretraining on ImageNet-100 and ImageNet-1k, along with direct downstream training from scratch.
+- **Note**: All domain-specific datasets used are low-data, following the article's criteria.
+
+
 ## Installation Instructions
 To install and set up the project...
 
