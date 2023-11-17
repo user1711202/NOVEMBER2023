@@ -56,7 +56,16 @@ Also a set of complementary experiments was conducted to assess the robustness o
 To install and set up the project...
 
 ## Usage
-To use this project for image classification...
+for training python3 main_pretrain.py \
+    # path to training script folder
+    --config-path scripts/pretrain/imagenet-100/ \
+    # training config name
+    --config-name barlow.yaml
+    # add new arguments (e.g. those not defined in the yaml files)
+    # by doing ++new_argument=VALUE
+    # pytorch lightning's arguments can be added here as well.
+
+   for offline linear evaluation, follow the examples in scripts/linear or scripts/finetune for finetuning the whole backbone.
 
 ## Results
 
