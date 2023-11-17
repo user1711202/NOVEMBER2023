@@ -36,3 +36,19 @@ ImageNet-100/Places-100 has been utilized both for pretraining and downstream fi
 | None/Random (ResNet)   | 70.6%   | 70.3%       |
 | None/Random (ViT)      | 71.2%   | **70.9%**   |
 
+## Accuracy Metrics for the Transfer Setup
+
+ImageNet-100/Places-100 has been utilized for pretraining in the object-centric/scene-centric cases, respectively, unless otherwise explicitly specified. Top-1/top-5 accuracy is reported for STL-10/all other cases, respectively. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
+| Pretraining           | COCO (Object-centric) | STL-10 (Object-centric) | ADE20K (Scene-centric) | SUN DB (Scene-centric) |
+| --------------------- | --------------------- | ----------------------- | ---------------------- | ---------------------- |
+| SimCLR (ResNet)       | 70.8%                 | 64.2%                   | 49.4%                  | 51.7%                  |
+| DINO (ViT)            | *75.7%*               | *67.1%*                 | *53.1%*                | *55.2%*                |
+| MAE (ViT)             | 74.4%                 | 65.7%                   | 51.1%                  | 53.3%                  |
+| DeepClusterV2 (ResNet)| 67.0%                 | 59.3%                   | 46.2%                  | 48.1%                  |
+| Supervised (ResNet)   | 73.2%                 | 67.8%                   | 54.3%                  | 53.5%                  |
+| Supervised (ViT)      | 74.9%                 | 69.7%                   | 56.2%                  | 55.8%                  |
+| Supervised-Large (ResNet) | 79.1% (IN-1k pretr.) | 73.6% (IN-1k pretr.) | 57.4% (Places-205 pretr.) | 59.4% (Places-205 pretr.) |
+| Supervised-Large (ViT) | **80.4%** (IN-1k pretr.) | **75.4%** (IN-1k pretr.) | **58.9%** (Places-205 pretr.) | **61.2%** (Places-205 pretr.) |
+
+
