@@ -88,4 +88,35 @@ ImageNet-100/Places-100 has been utilized for pretraining in the object-centric/
 | Supervised-Large (ResNet) | 79.1% (IN-1k pretr.) | 73.6% (IN-1k pretr.) | 57.4% (Places-205 pretr.) | 59.4% (Places-205 pretr.) |
 | Supervised-Large (ViT) | **80.4%** (IN-1k pretr.) | **75.4%** (IN-1k pretr.) | **58.9%** (Places-205 pretr.) | **61.2%** (Places-205 pretr.) |
 
+## Accuracy Metrics for Noisy-ImageNet-100 (Top-5)
+
+ImageNet-100 has been employed for both pretraining and finetuning in the SSL models. The "Supervised"/"Supervised-Large" baseline has been trained from scratch on ImageNet-100/ImageNet-1k, respectively. Noisy-ImageNet-100 is utilized only for testing. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
+| Pretraining          | IN-A-100     | IN-P-100     | IN-C-100     |
+| -------------------- | ------------ | ------------ | ------------ |
+| SimCLR (ResNet)      | 70.3%        | 75.1%        | 68.3%        |
+| DINO (ViT)           | 73.0%        | *78.2%*      | *72.6%*      |
+| MAE (ViT)            | *74.6%*      | 76.5%        | 70.4%        |
+| DeepClusterV2 (ResNet)| 66.4%       | 68.7%        | 64.2%        |
+| Supervised (ResNet)  | 77.2%        | 78.0%        | 73.5%        |
+| Supervised-Large (ResNet) | 81.8%   | 83.0%        | 76.5%        |
+| Supervised (ViT)     | 78.3%        | 78.5%        | 74.0%        |
+| Supervised-Large (ViT)| **82.5%**   | **84.2%**    | **77.6%**    |
+
+## Accuracy Metrics for Imbalanced-ImageNet-100 and VTAB
+
+SSL variants and the "Supervised" baselines have been pretrained on ImageNet-100, while the "Supervised-Large" baselines on ImageNet-1k. All have been subsequently finetuned on the respective downstream dataset(s), before evaluation on the corresponding test sets. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
+| Pretraining          | Imbalanced-IN-100 | VTAB-Natural | VTAB-Specialized | VTAB-Structured |
+| -------------------- | ----------------- | ------------ | ---------------- | --------------- |
+| SimCLR (ResNet)      | 63.2%             | 62.5%        | 58.3%            | 60.1%           |
+| DINO (ViT)           | *79.1%*           | 65.2%        | 61.8%            | 63.0%           |
+| MAE (ViT)            | 69.3%             | *66.7%*      | *62.9%*          | *64.5%*         |
+| DeepClusterV2 (ResNet)| 59.1%            | 60.3%        | 56.7%            | 58.2%           |
+| Supervised (ResNet)  | 78.2%             | 63.2%        | 62.8%            | 62.5%           |
+| Supervised-Large (ResNet)| 85.3%         | 66.9%        | 63.4%            | 65.8%           |
+| Supervised (ViT)     | 80.0%             | 67.1%        | **64.7%**        | 66.0%           |
+| Supervised-Large (ViT)| **86.2%**        | **68.2%**    | 64.2%            | **66.5%**       |
+
+
 
