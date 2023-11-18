@@ -1,0 +1,26 @@
+# ResNet Model Configuration
+
+resnet:
+  model_name: "resnet50"
+  num_classes: 1000
+  pretrained: true
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 50
+  image_size:
+    - 224
+    - 224
+
+# Common training settings for ResNet
+training:
+  optimizer: "adam"
+  loss_function: "cross_entropy"
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+  dataset_path: "/path/to/dataset"
+  validation_split: 0.2
+  shuffle_dataset: true
+  num_workers: 4
+  device: "cuda" # or "cpu"
