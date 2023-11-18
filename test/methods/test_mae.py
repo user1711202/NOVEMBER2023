@@ -63,8 +63,8 @@ def test_mae():
     trainer.fit(model, train_dl, val_dl)
 
     # cifar
-    cfg.data.dataset = "cifar10"
-    cfg.data.num_classes = 10
+    cfg.data.dataset = "COCO"
+    cfg.data.num_classes = 80
     cfg.backbone = {"name": "vit_small", "kwargs": {"img_size": 32, "patch_size": 8}}
     model = MAE(cfg)
 
