@@ -1,63 +1,71 @@
 import os
+import random
 from PIL import Image
 import numpy as np
 from sklearn.model_selection import train_test_split
-import random
 
-def load_dataset(dataset_path, dataset_name):
+def load_sixray100_dataset(dataset_path):
     """
-    Load images from a given dataset path.
-    Returns a list of image arrays and their labels.
-    Custom handling for different datasets.
+    Load and preprocess SIXRay-100 dataset.
+    Returns images and labels, with the dataset split according to the specified ratio.
+    """
+    images, labels = load_dataset_generic(dataset_path, sample_per_class=None)
+    return split_dataset(images, labels, test_size=0.15, val_size=0.15)
+
+def load_places100_dataset(dataset_path):
+    """
+    Load and preprocess Places-100 dataset.
+    Returns images and labels, with the dataset split according to the specified ratio.
+    """
+    images, labels = load_dataset_generic(dataset_path, sample_per_class=500)
+    return split_dataset(images, labels, test_size=0.15, val_size=0.15)
+
+def load_dataset_generic(dataset_path, sample_per_class=None):
+    """
+    Generic dataset loading function.
     """
     images = []
     labels = []
-
-    if dataset_name in ['Places-100', 'SIXRay-100']:
-        # Handling for Places-100 and SIXRay-100
-        for folder_name in os.listdir(dataset_path):
-            folder_path = os.path.join(dataset_path, folder_name)
-            image_files = os.listdir(folder_path)
-            # Randomly select a subset of images if required
-            if dataset_name == 'Places-100':
-                image_files = random.sample(image_files, 500)
-            for image_name in image_files:
-                process_image(folder_path, image_name, images, labels, folder_name)
-
-    elif dataset_name == 'ADE20K':
-        # Handling for ADE20K
-        for folder_name in os.listdir(dataset_path):
-            folder_path = os.path.join(dataset_path, folder_name)
-            for image_name in os.listdir(folder_path):
-                process_image(folder_path, image_name, images, labels, folder_name)
-
-    elif dataset_name == 'STL-10':
-        # Handling for STL-10
-        for fold in range(10):
-            fold_path = os.path.join(dataset_path, f"fold_{fold}")
-            for image_name in os.listdir(fold_path):
-                process_image(fold_path, image_name, images, labels, fold)
-
+    for folder_name in os.listdir(dataset_path):
+        folder_path = os.path.join(dataset_path, folder_name)
+        image_files = os.listdir(folder_path)
+        if sample_per_class:
+            image_files = random.sample(image_files, min(len(image_files), sample_per_class))
+        for image_name in image_files:
+            image_path = os.path.join(folder_path, image_name)
+            try:
+                image = Image.open(image_path)
+                images.append(np.array(image))
+                labels.append(folder_name)
+            except Exception as e:
+                print(f"Error loading image {image_path}: {e}")
     return images, labels
 
-def process_image(folder_path, image_name, images, labels, label):
+def preprocess_images(images, target_size=(224, 224)):
     """
-    Helper function to process and add an image to the dataset.
+    Resize and normalize images.
     """
-    image_path = os.path.join(folder_path, image_name)
-    try:
-        image = Image.open(image_path)
-        images.append(np.array(image))
-        labels.append(label)
-    except Exception as e:
-        print(f"Error loading image {image_path}: {e}")
+    processed_images = [Image.fromarray(img).resize(target_size) for img in images]
+    processed_images = np.array(processed_images) / 255.0
+    return processed_images
 
-# ... [Rest of the functions like 'preprocess_images' and 'split_dataset' remain the same]
+def split_dataset(images, labels, test_size=0.15, val_size=0.15):
+    """
+    Split the dataset into training, validation, and test sets.
+    """
+    X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=test_size)
+    val_size_adjusted = val_size / (1 - test_size)  # Adjust validation size based on remaining dataset
+    X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=val_size_adjusted)
+    return X_train, X_val, X_test, y_train, y_val, y_test
+
+# Example usage for SIXRay-100
+sixray100_path = "path/to/sixray100"
+images, labels = load_sixray100_dataset(sixray100_path)
+images = preprocess_images(images)
+X_train_sixray, X_val_sixray, X_test_sixray, y_train_sixray, y_val_sixray, y_test_sixray = split_dataset(images, labels)
 
 # Example usage for Places-100
 places100_path = "path/to/places100"
-images, labels = load_dataset(places100_path, 'Places-100')
+images, labels = load_places100_dataset(places100_path)
 images = preprocess_images(images)
-X_train, X_val, X_test, y_train, y_val, y_test = split_dataset(images, labels)
-
-# You can repeat the above example usage for ADE20K, STL-10, and SIXRay-100 by changing the path and dataset name.
+X_train_places, X_val_places, X_test_places, y_train_places, y_val_places, y_test_places = split_dataset(images, labels)
