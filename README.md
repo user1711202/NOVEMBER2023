@@ -122,6 +122,8 @@ for training python3 main_pretrain.py \
 
 ## Accuracy Metrics for Imbalanced-ImageNet-100 and VTAB
 
+More info about VTAB you can find here: https://google-research.github.io/task_adaptation/
+
 
 
 | Pretraining          | Imbalanced-IN-100 | VTAB-Natural | VTAB-Specialized | VTAB-Structured |
