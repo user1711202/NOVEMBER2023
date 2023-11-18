@@ -69,8 +69,8 @@ def test_deepclusterv2():
     trainer.fit(model, train_dl, val_dl)
 
     # cifar
-    cfg.data.dataset = "cifar10"
-    cfg.data.num_classes = 10
+    cfg.data.dataset = "COC"
+    cfg.data.num_classes = 80
     model = DeepClusterV2(cfg)
 
     trainer = gen_trainer(cfg)
