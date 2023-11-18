@@ -24,6 +24,7 @@ This document provides an overview of the datasets used in our research, along w
 
 
 ##Μodifications and configurations.
+The following modifications are contained in preprocessing.py
 
 Places-100:
 Derived from Places-365 by randomly selecting 500 images per class (total of 50,000 images), contrary to the 400 images per class in Places-365 as per \cite{he2021quantifying}.
