@@ -75,6 +75,7 @@ for training python3 main_pretrain.py \
     # pytorch lightning's arguments can be added here as well.
 
    for offline linear evaluation, follow the examples in scripts/linear or scripts/finetune for finetuning the whole backbone.
+   optimal hyparparameters on yamls files
 
 ## Results
 
