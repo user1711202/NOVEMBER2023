@@ -83,7 +83,7 @@ def test_dino():
 
     # cifar
     cfg.data.dataset = "COCO"
-    cfg.data.num_classes = 10
+    cfg.data.num_classes = 80
     model = DINO(cfg)
 
     trainer = gen_trainer(cfg)
