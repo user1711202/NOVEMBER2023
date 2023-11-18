@@ -80,7 +80,7 @@ for training python3 main_pretrain.py \
 
 ### Top-5 Accuracy for the Single-Dataset Setup
 
-ImageNet-100/Places-100 has been utilized both for pretraining and downstream finetuning in the object-centric/scene-centric cases, respectively. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
 
 | Pretraining        | IN-100      | Places-100  |
 | ------------------ | ----------- | ----------- |
@@ -93,7 +93,6 @@ ImageNet-100/Places-100 has been utilized both for pretraining and downstream fi
 
 ## Accuracy Metrics for the Transfer Setup
 
-ImageNet-100/Places-100 has been utilized for pretraining in the object-centric/scene-centric cases, respectively, unless otherwise explicitly specified. Top-1/top-5 accuracy is reported for STL-10/all other cases, respectively. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
 
 | Pretraining           | COCO (Object-centric) | STL-10 (Object-centric) | ADE20K (Scene-centric) | SUN DB (Scene-centric) |
 | --------------------- | --------------------- | ----------------------- | ---------------------- | ---------------------- |
@@ -108,7 +107,6 @@ ImageNet-100/Places-100 has been utilized for pretraining in the object-centric/
 
 ## Accuracy Metrics for Noisy-ImageNet-100 (Top-5)
 
-ImageNet-100 has been employed for both pretraining and finetuning in the SSL models. The "Supervised"/"Supervised-Large" baseline has been trained from scratch on ImageNet-100/ImageNet-1k, respectively. Noisy-ImageNet-100 is utilized only for testing. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
 
 | Pretraining          | IN-A-100     | IN-P-100     | IN-C-100     |
 | -------------------- | ------------ | ------------ | ------------ |
@@ -123,7 +121,7 @@ ImageNet-100 has been employed for both pretraining and finetuning in the SSL mo
 
 ## Accuracy Metrics for Imbalanced-ImageNet-100 and VTAB
 
-SSL variants and the "Supervised" baselines have been pretrained on ImageNet-100, while the "Supervised-Large" baselines on ImageNet-1k. All have been subsequently finetuned on the respective downstream dataset(s), before evaluation on the corresponding test sets. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
+
 
 | Pretraining          | Imbalanced-IN-100 | VTAB-Natural | VTAB-Specialized | VTAB-Structured |
 | -------------------- | ----------------- | ------------ | ---------------- | --------------- |
@@ -139,7 +137,6 @@ SSL variants and the "Supervised" baselines have been pretrained on ImageNet-100
 
 ## Top-1 Accuracy for Domain-Specific Setups
 
-MLRSNet, MedPix, and SIXRay-100 have been utilized for SSL pretraining in their respective domains. Both ImageNet-100 and ImageNet-1k have been utilized as pretraining datasets for the respective supervised baselines. The overall best accuracy per downstream dataset is highlighted in bold; if it is from a non-SSL approach, then the best SSL method's accuracy is underlined.
 
 | Pretraining                  | AID            | ChestX-Det     | SIXRay-10      |
 | ---------------------------- | -------------- | -------------- | -------------- |
