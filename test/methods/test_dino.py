@@ -82,7 +82,7 @@ def test_dino():
     trainer.fit(model, train_dl, val_dl)
 
     # cifar
-    cfg.data.dataset = "cifar10"
+    cfg.data.dataset = "COCO"
     cfg.data.num_classes = 10
     model = DINO(cfg)
 
