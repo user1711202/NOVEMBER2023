@@ -1,4 +1,4 @@
-# Evaluating SSL Methods in Whole-Image Classification
+# Self-supervised visual learning in the low-data regime: a comparative evaluation
 
 ## Abstract
 
